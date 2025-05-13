@@ -5,8 +5,10 @@ const PORT = config.TCP_PORT;
 
 const tcp = new TCPBuilder()
   .get('/', () => ({
-    status: "ok",
-    timestamp: Date.now()
+    data: {
+      status: "ok",
+      timestamp: Date.now()
+    },
   }))
   .run(PORT, () => {
     console.log(`TCP status server on ${PORT}`);
